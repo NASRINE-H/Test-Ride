@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
+body {
+    /*width: 92%;
+height: 100%;*/
+    width: 100%;
+    height: 1095px;
+    left: 200px;
+    top: 171px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.afficheProduct {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0px;
+    left: 38px;
+    top: 437px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Beers {
+    width: 500px;
+    height: 1200px;
+    border-radius: 10px;
+    margin: 20px;
+    justify-content: flex-start;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.first_brewed {
+    font-size: 24px;
+    color: black;
 }
