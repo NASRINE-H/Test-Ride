@@ -18,7 +18,7 @@ const FicheResource = () => {
     <section>
       {beerId && (
         <div>
-          <BeerInfo image_url={beerId.image_url} name={beerId.name} tagline={beerId.tagline} first_brewed={beerId.first_brewed} description={beerId.description} />
+          <BeerInfo image_url={beerId.image_url}name={beerId.name} tagline={beerId.tagline} first_brewed={beerId.first_brewed} description={beerId.description} />
         </div>
       )}
     </section>
