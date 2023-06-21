@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Beers from '../compenents/Beers';
+import Pagination from '../compenents/Pagination'
 
 const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -11,7 +12,7 @@ const Home = () => {
         try {
           const response = await fetch(`https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=${beersPerPage}`);
           const data = await response.json();
-      
+
     //   console.log(data);
       let selectedPAge=((data[0].id-1)/20)+1;
        setCurrentPage(selectedPAge);
@@ -37,11 +38,19 @@ const Home = () => {
 
   return (
     <div>
-      <div>
-        <button onClick={goToPreviousPage}>Previous</button>
-        <button onClick={goToNextPage}>Next</button>
+       
+      <div className='boutonNextPre'>
+        <button className='boutonPrev' onClick={goToPreviousPage}>Previous</button>
+        <button className='boutonNext' onClick={goToNextPage}>Next</button>
       </div>
-      <Beers beers={beers} />
+      <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={setCurrentPage} // Utilisez setCurrentPage comme callback pour onPageChange
+    />
+     <Beers beers={beers} />
+
+      
     </div>
   );
 };
