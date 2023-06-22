@@ -6,7 +6,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
-
+  const modifiePage = (pageNumber) => {
+    onPageChange(pageNumber);
+  };
   return (
     <div className="pagination">
      
@@ -15,7 +17,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           <div
             key={pageNumber}
             className={`page-number ${pageNumber === currentPage ? "active" : ""}`}
-            onClick={() => onPageChange(pageNumber)}
+            onClick={() => modifiePage(pageNumber)}
           >
             {pageNumber}
           </div>
