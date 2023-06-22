@@ -2,11 +2,14 @@ import React,{ useState, useEffect } from 'react';
 //import apiData from '../products.json';
 import { useParams, useNavigate } from 'react-router-dom';
 import BeerInfo from '../compenents/BeerInfo';
+import Banner from '../compenents/Banner'
 
 const FicheResource = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [beer, setBeer] = useState(null);
+  
+
   
 
   useEffect(() => {
@@ -17,20 +20,20 @@ const FicheResource = () => {
         if (data.length > 0) {
           setBeer(data[0]); // Accédez à la première bière du tableau
         } else {
-          navigate('/404'); // Redirigez vers la page 404 si aucune bière n'est trouvée
+            navigate('/notfound'); // Redirigez vers la page 404 si aucune bière n'est trouvée
         }
       } catch (error) {
         console.error('Erreur lors de la récupération des données de la bière :', error);
-        navigate('/404');
+        navigate('/notfound');
       }
     };
   
     fetchBeer();
   }, [id, navigate]);
 
-  if (!beer) {
-    return null; // Affichez un état de chargement ou redirigez vers une page appropriée si les données de la bière ne sont pas encore disponibles
-  }
+//   if (!beer) {
+//     return null; // Affichez un état de chargement ou redirigez vers une page appropriée si les données de la bière ne sont pas encore disponibles
+//   }
 
   const handleSave = async () => {
     try {
@@ -48,23 +51,28 @@ const FicheResource = () => {
       } else {
         // La requête a échoué
         throw new Error('Erreur lors de la sauvegarde');
+        
       }
     } catch (error) {
       console.error('Erreur lors de la sauvegarde :', error);
+      navigate('/notfound');
     }
   };
 
   return (
     <section>
     <div>
-    <BeerInfo
-  image_url={beer.image_url}
-  name={beer.name}
-  tagline={beer.tagline}
-  first_brewed={beer.first_brewed}
-  description={beer.description}
-/>
-<button onClick={handleSave}>Sauvegarder</button>
+    <Banner/>
+            <BeerInfo
+             image_url={beer ? beer.image_url : ''}
+             name={beer ? beer.name : ''}
+             tagline={beer ? beer.tagline : ''}
+             first_brewed={beer ? beer.first_brewed : ''}
+             description={beer ? beer.description : ''}
+            />
+            <button className='btn-Sauvgarder' onClick={handleSave}>Sauvegarder</button>
+         
+       
     </div>
   </section>
   );
