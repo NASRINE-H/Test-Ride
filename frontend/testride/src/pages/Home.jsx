@@ -87,7 +87,7 @@ const Home = () => {
       <Pagination
       currentPage={currentPage}
       totalPages={totalPages}
-      onPageChange={setCurrentPage} // Utilisez setCurrentPage comme callback pour onPageChange
+      onPageChange={setCurrentPage} 
     />
 
     </div>
