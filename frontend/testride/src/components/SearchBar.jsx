@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
     <div>
       <select className='nom-année' value={searchField} onChange={handleSearchFieldChange}>
         <option value="beer_name">Nom</option>
-        <option value="first_brewed">Année</option>
+       
       </select>
       <input className='input-recherche'
         type="text"

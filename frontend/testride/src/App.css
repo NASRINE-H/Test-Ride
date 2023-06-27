@@ -179,3 +179,11 @@ a h2 {
     margin-left: 5px;
     background-color: darkgrey
 }
+
+.boutonRetour {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+}
