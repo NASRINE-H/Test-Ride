@@ -15,15 +15,15 @@ import './App.css';
 
 function App() {
 
-  const [beers, setBeers] = useState([]);
+  // const [beers, setBeers] = useState([]);
 
-    useEffect(() => {
-     // Effectuer la requête pour récupérer les données des bières
-  fetch('https://api.punkapi.com/v2/beers')
-     .then(response => response.json())
-       .then(data => setBeers(data))
-       .catch(error => console.error(error));
-   }, [beers]);
+  //   useEffect(() => {
+  //    // Effectuer la requête pour récupérer les données des bières
+  // fetch('https://api.punkapi.com/v2/beers')
+  //    .then(response => response.json())
+  //      .then(data => setBeers(data))
+  //      .catch(error => console.error(error));
+  //  }, [beers]);
 
 
 
